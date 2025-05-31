@@ -30,7 +30,7 @@ POST /doc_data
 #### 📥 Request Parameters (JSON Body)
 | Parameter    | Type   | Required | Default | Description                              |
 |--------------|--------|----------|---------|------------------------------------------|
-| `reg_no`     | int    | Yes      | -       | 6-digit registration number              |
+| `reg_no`     | string | Yes      | -       | maximum 6-digit registration number      |
 | `reg_type`   | int    | No       | 1       | 1 for MBBS, 2 for BDS                    |
 | `timeout_sec`| int    | No       | 10      | Timeout in seconds for the request       |
 
@@ -66,7 +66,7 @@ POST /doc_data
 ```bash
 curl -X POST "https://bmdc-api-vercel.vercel.app/doc_data" \
 -H "Content-Type: application/json" \
--d '{"reg_no": 123456}'
+-d '{"reg_no": "123456"}'
 ```
 
 **Python:**
@@ -75,7 +75,7 @@ import requests
 
 url = "https://bmdc-api-vercel.vercel.app/doc_data"
 payload = {
-    "reg_no": 123456,
+    "reg_no": "123456",
     "reg_type": 1,
     "timeout_sec": 15
 }
